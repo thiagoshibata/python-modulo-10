@@ -6,6 +6,7 @@ disable=
       C0116, # Missing-function-docstring
       W0703, # Catching tto general exception Exception
       C0209, # Consider-using-f-string
+      R0903, # too-few-public-methods
       E0015, # unrecognized-option,
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
