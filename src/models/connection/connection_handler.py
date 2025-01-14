@@ -4,7 +4,7 @@ class DBConnectionHandler:
     def __init__(self):
         self.__connection_string = 'mongodb://{}:{}@{}:{}/?authSource=admin'.format(
             "admin",
-            "password",
+            "admin",
             "localhost",
             "27017"
         )
