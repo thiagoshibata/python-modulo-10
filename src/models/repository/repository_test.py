@@ -1,12 +1,11 @@
+# pylint: disable-all
 import pytest
-from src.models.connection.connection_handler import DBConnectionHandler
+# from src.models.connection.connection_handler import DBConnectionHandler
 from src.models.repository.orders_repository import OrdersRepository
-from bson.objectid import ObjectId
 
-
-db_connection_handler = DBConnectionHandler()
-db_connection_handler.connect_to_db()
-conn = db_connection_handler.get_db_connection()
+# db_connection_handler = DBConnectionHandler()
+# db_connection_handler.connect_to_db()
+# conn = db_connection_handler.get_db_connection()
 
 @pytest.mark.skip(reason="interacao com o banco de dados")
 def test_insert_document():
@@ -121,6 +120,7 @@ def test_delete_registry():
     object_id = "6784fb2afac3010aef8f106f"
     orders_repository.delete_registry(object_id)
 
+@pytest.mark.skip(reason="interacao com o banco de dados")
 def test_delete_many_registries():
     orders_repository = OrdersRepository(conn)
     orders_repository.delete_many_registries()
