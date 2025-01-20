@@ -1,6 +1,8 @@
 import pytest
 from src.models.connection.connection_handler import DBConnectionHandler
 from src.models.repository.orders_repository import OrdersRepository
+from bson.objectid import ObjectId
+
 
 db_connection_handler = DBConnectionHandler()
 db_connection_handler.connect_to_db()
@@ -112,3 +114,13 @@ def test_edit_registry_with_increment():
     object_id = "6784fb2afac3010aef8f106f"
     edit_data = {"itens.pizza.quantidade" : 30 }
     orders_repository.edit_registry_with_increment(object_id, edit_data)
+
+@pytest.mark.skip(reason="interacao com o banco de dados")
+def test_delete_registry():
+    orders_repository = OrdersRepository(conn)
+    object_id = "6784fb2afac3010aef8f106f"
+    orders_repository.delete_registry(object_id)
+
+def test_delete_many_registries():
+    orders_repository = OrdersRepository(conn)
+    orders_repository.delete_many_registries()
