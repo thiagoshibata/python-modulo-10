@@ -46,3 +46,23 @@ class OrdersRepository:
         collection = self.__db_connection.get_collection(self.__collection_name)
         data = collection.find_one({"_id" : ObjectId(object_id)})
         return data
+
+    def edit_registry(self,object_id: str, edit_data: dict) -> None:
+        collection = self.__db_connection.get_collection(self.__collection_name)
+        collection.update_one(
+            { "_id" : ObjectId(object_id)}, #Filters
+            { "$set": edit_data } #Edit data
+        )
+
+    def edit_many_registries(self, edit_data: dict) -> None:
+        collection = self.__db_connection.get_collection(self.__collection_name)
+        collection.update_many(
+            { "itens.refrigerante": { "$exists": True } }, #Filters
+            { "$set": edit_data } #Edit data
+        )
+    def edit_registry_with_increment(self, object_id: str, edit_data: dict) -> None:
+        collection = self.__db_connection.get_collection(self.__collection_name)
+        collection.update_one(
+            { "_id" : ObjectId(object_id)}, #Filters
+            { "$inc": edit_data } #Edit data with increment. For decrement use negative number
+        )

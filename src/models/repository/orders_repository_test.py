@@ -85,9 +85,30 @@ def test_select_many_with_or_filter():
         print(doc)
         print()
 
+@pytest.mark.skip(reason="interacao com o banco de dados")
 def test_select_by_object_id():
     orders_repository = OrdersRepository(conn)
     object_id = "6784fb2afac3010aef8f106f"
     response = orders_repository.select_by_object_id(object_id)
     print()
     print(response)
+
+@pytest.mark.skip(reason="interacao com o banco de dados")
+def test_edit_registry():
+    orders_repository = OrdersRepository(conn)
+    object_id = "6784fb2afac3010aef8f106f"
+    edit_data = {"itens.pizza.quantidade" : 30 }
+    orders_repository.edit_registry(object_id, edit_data)
+
+@pytest.mark.skip(reason="interacao com o banco de dados")
+def test_edit_many_registries():
+    orders_repository = OrdersRepository(conn)
+    edit_data = { "itens.refrigerante.quantidade":100 }
+    orders_repository.edit_many_registries( edit_data)
+
+@pytest.mark.skip(reason="interacao com o banco de dados")
+def test_edit_registry_with_increment():
+    orders_repository = OrdersRepository(conn)
+    object_id = "6784fb2afac3010aef8f106f"
+    edit_data = {"itens.pizza.quantidade" : 30 }
+    orders_repository.edit_registry_with_increment(object_id, edit_data)
