@@ -1,4 +1,4 @@
-from src.main.use_cases.registry_order import RegistryOrder
+from src.use_cases.registry_order import RegistryOrder
 from src.models.repository.orders_repository import OrdersRepository
 from src.models.connection.connection_handler import db_connection_handler
 
