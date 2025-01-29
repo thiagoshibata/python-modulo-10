@@ -1,6 +1,6 @@
 class HttpRequest:
     def __init__(
-            self, 
+            self,
             body: dict = None,
             headers: dict = None,
             params: dict = None,
